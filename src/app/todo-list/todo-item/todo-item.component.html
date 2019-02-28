@@ -1,0 +1,8 @@
+<li id="tdItem" class="itemPosition">
+    <div>
+          <input type="checkbox" [(ngModel)]="item.completed" (change)="completedItem(item)" />
+          <span [class.strikethru]="item.completed">{{item.title}}</span>
+          <span ></span>
+          <button class="delete" (click)="deleteItem(item.id)">X</button>
+    </div>
+</li> 

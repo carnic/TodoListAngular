@@ -1,1 +1,77 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+header{
+    padding: 5px;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+nav ul, ul.list {
+    list-style-type: none;
+    margin: 5px;
+    padding: 0;
+}
+  
+nav ul li {
+    display: inline;
+}
+
+a:visited, a{
+    color: red;
+    text-decoration: none;
+}
+
+.itemPosition{
+    width: 75%;
+    padding: 5px;
+    margin: 0.5% 10%;
+}
+
+#tdItem{
+    background-color:rgb(245, 244, 244);
+    border: 1px solid silver;
+}
+
+#tdItem button.delete {
+    float: right;
+    background-color: rgb(212, 63, 63);
+    border-radius: 40%;
+    border: none;
+}
+
+#addItem{
+    align-content: flex-end;
+    padding: 5px;
+    background-color: rgb(245, 244, 244);
+}
+
+#addItem input{
+    width: 20%;
+}
+
+#addItem button{
+    width: 10%;
+    margin: 10px;
+}
+
+.strikethru{
+    text-decoration: line-through;
+}
+
+.error{
+    color: red;
+}
+
+.success{
+    color: green;
+}
+
+.description{
+    font-style: italic;
+}

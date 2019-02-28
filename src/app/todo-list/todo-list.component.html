@@ -1,0 +1,16 @@
+<div>
+    <ul class="list">
+        <app-todo-item *ngFor="let item of todolist" 
+            [item]="item"
+            (itemUpdated)="updateItem($event)">
+        </app-todo-item>
+    </ul>
+    
+   <app-add-todo-item 
+        (addItem)="addItem($event)">
+   </app-add-todo-item>
+   
+    <div class="itemPosition">
+        <button ng-click="selectAll()">Mark All Items Completed</button>
+    </div>
+</div>
