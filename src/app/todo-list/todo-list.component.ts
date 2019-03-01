@@ -30,7 +30,6 @@ export class TodoListComponent implements OnInit {
     this.todolistService.itemAdded.subscribe(
       (item: TodoItem) => {
         this.todolist.push(item);
-        console.log("EHYLO");
       },
       (err) => console.log("error"+err)
     )
@@ -41,6 +40,7 @@ export class TodoListComponent implements OnInit {
       this.todolistService.addItem(new TodoItem(this.todolist.length, itemTitle, false));
     }
     else{
+      this.notifService.setAddStatus(true);
     }
   }
 

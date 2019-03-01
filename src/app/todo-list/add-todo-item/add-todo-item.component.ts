@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { NotifService } from 'src/app/notif.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add-todo-item',
@@ -13,6 +12,7 @@ export class AddTodoItemComponent implements OnInit {
   @Output() addItem = new EventEmitter<String>();
   @ViewChild('itemTitle') itemTitle: ElementRef;
   status: {error: Boolean, message: String};
+  state = false;
 
   constructor(public notifService: NotifService) { }
 
@@ -22,6 +22,15 @@ export class AddTodoItemComponent implements OnInit {
 
   addItemToParent(){
     this.addItem.emit(this.itemTitle.nativeElement.value);
+    this.notifService.getAddStatus().subscribe(
+      (data: boolean)=> {
+        console.log(data);
+        let message = (!data)?"Item title has to be entered.":"Item has been Added.";
+        console.log(message);
+        this.status= {error: data, message: message};
+        this.state = true;
+      }
+    );
   }
 
 }

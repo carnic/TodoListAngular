@@ -4,6 +4,7 @@ import { TodoItem } from "./TodoItem.model";
 import { Injectable, EventEmitter } from "@angular/core";
 import { map } from 'rxjs/operators';
 import { Observable } from "rxjs/Rx";
+import { NotifService } from "../notif.service";
 
 @Injectable()
 export class TodoListService{
@@ -14,7 +15,7 @@ export class TodoListService{
     url: String = "https://jsonplaceholder.typicode.com/todos";
     getParam: String = "?_limit=10";
 
-    constructor(private http: Http){}
+    constructor(private http: Http, private notifService: NotifService){}
 
     getList(): Observable<TodoItem[]>{
         return this.http.get(`${this.url}${this.getParam}`)
@@ -29,6 +30,7 @@ export class TodoListService{
             (res) => {
                 if(res.status == 201){
                     this.itemAdded.emit(item);
+                    this.notifService.setAddStatus(true);
                 }
             },
             (err) => console.log(err)

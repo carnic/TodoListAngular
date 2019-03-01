@@ -1,5 +1,5 @@
 <div id="tdItem" class="itemPosition">
     <input type="text" placeholder="Item Name" #itemTitle/>
     <button (click)="addItemToParent()">Add Item</button>
-    <span *ngIf="status" [ngClass]="{error: error, success: error!=true}">{{errorMessage}}</span>
+    <span *ngIf="state" [ngClass]="{error: status.error, success: status.error!=true}">{{status.message}}</span>
 </div>
